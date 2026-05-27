@@ -14,7 +14,7 @@ USER roboshop
 COPY --from=builder /opt/server /opt/server
 CMD ["node","server.js"]
 
-
+# The above multi-stage build is more efficient as it only copies the necessary files and dependencies to the final image, resulting in a smaller image size.
 # FROM node:20-alpine3.21
 # RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 # WORKDIR /opt/server
