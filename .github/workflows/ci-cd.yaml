@@ -7,7 +7,7 @@ on:
 
 jobs:
   common:  # Job name
-    uses: rachelsigao/reusable-workflows/.github/workflows/common.yaml@main  # Call reusable workflow
+    uses: rachelsigao/github-reusable-workflows/.github/workflows/common.yaml@main  # Call reusable workflow
     with:
       project: roboshop  # Project name
       component: catalogue  # Component name
