@@ -1,0 +1,17 @@
+# This is caller workflow that uses reusable workflow (common.yaml). It passes inputs and secrets to the reusable workflow.
+name: cicd  # Workflow name
+
+on:
+  push:  # Run on push to repository
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  common:  # Job name
+    uses: rachelsigao/reusable-workflows/.github/workflows/common.yaml@main  # Call reusable workflow
+    with:
+      project: roboshop  # Project name
+      component: catalogue  # Component name
+      app_type: nodejs  # Application type
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}  
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
